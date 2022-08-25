@@ -6,11 +6,11 @@ class Solution:
         is_prime[0], is_prime[1] = False, False # 0, 1 is not a prime number
         
         i = 2
-        while i * i < n:
+        while i * i < n: # no need to search above i which is i > sqrt(n)
             if is_prime[i] == False: 
                 i += 1
                 continue
-            for j in range(i * i, n, i):
+            for j in range(i * i, n, i): # (i * 1), ..., (i * (i - 1)) were searched already before
                 is_prime[j] = False
             i += 1
         
